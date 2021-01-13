@@ -25,8 +25,9 @@
             "esri/Map",
             "esri/views/MapView",
             "esri/widgets/BasemapToggle",
-            "esri/widgets/BasemapGallery"
-        ], function (Map, MapView, BasemapToggle, BasemapGallery) {
+            "esri/widgets/BasemapGallery",
+            "esri/layers/FeatureLayer"
+        ], function (Map, MapView, BasemapToggle, BasemapGallery, FeatureLayer) {
 
             var map = new Map({
                 basemap: "topo-vector"
@@ -46,17 +47,55 @@
             //     nextBasemap: 'satellite'
             // })
 
-            var basemapGallery = new BasemapGallery ({
-                view: view,
-                source: {
-                    portal: {
-                        url: 'https://www.arcgis.com',
-                        useVectorBasemaps: false // Load vector tile basemaps
-                    }
-                }
+            // var basemapGallery = new BasemapGallery ({
+            //     view: view,
+            //     source: {
+            //         portal: {
+            //             url: 'https://www.arcgis.com',
+            //             useVectorBasemaps: false // Load vector tile basemaps
+            //         }
+            //     }
+            // })
+
+            // view.ui.add(basemapGallery, 'bottom-right')
+
+            var trailheadsLayer = new FeatureLayer ({
+                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trailheads/FeatureServer/0"
             })
 
-            view.ui.add(basemapGallery, 'bottom-right')
+            map.add(trailheadsLayer)
+
+            var trailsLayer = new FeatureLayer({
+                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Trails/FeatureServer/0",
+                definitionExpression: "ELEV_GAIN < 250",
+                
+                renderer: {
+                    type: "simple",
+                    symbol: {
+                        type: "simple-line",
+                        color: "pink",
+                        width: "2px"
+                    }
+                },
+
+                outfields: ["TRL_NAME", "ELEV_GAIN"],
+
+                popupTemplate: {
+                    title: "{TRL_NAME}",
+                    content: "The trail elevation gain is {ELEV_GAIN} ft"
+                }
+
+            })
+
+            // https://developers.arcgis.com/javascript/latest/api-reference/esri-layers-FeatureLayer.html
+
+            map.add(trailsLayer, 1)
+
+            var polygonLayer = new FeatureLayer({
+                url: "https://services3.arcgis.com/GVgbJbqm8hXASVYi/arcgis/rest/services/Parks_and_Open_Space/FeatureServer/0"
+            })
+
+            map.add(polygonLayer, 0)
         });
     </script>
 
