@@ -1,6 +1,3 @@
-# To add a new cell, type '# %%'
-# To add a new markdown cell, type '# %% [markdown]'
-# %%
 # brian greer
 #4/2015
 #directory of shapefiles to zip for zipping individual shapefiles
@@ -10,8 +7,6 @@ import os
 import glob
 from zipfile import *
 
-
-# %%
 #define location of shapefiles and destination of zipped shapefiles
 source = r"/Users/danwiet/Desktop/coding/esri/past 4 months/20201116_HC"
 dest = r"/Users/danwiet/Desktop/coding/esri/past 4 months/20201116_HC/zip"
@@ -23,14 +18,10 @@ os.chdir(source)
 retval = os.getcwd()
 print(retval)
 
-
-# %%
 #list all files with extension .shp
 shps = glob.glob(source+"/*.shp")
 #print(shps)
 
-
-# %%
 # create empty list for zipfile names
 ziplist = []
  
@@ -52,8 +43,6 @@ for name in shps:
 #prints ziplist to confirm shapefile root names have been added
 #print(ziplist)
 
-
-# %%
 #creates zipefiles in dest folder with basenames
 for f in ziplist:
   # prints each item in the ziplist
@@ -73,5 +62,3 @@ for f in ziplist:
     #print(s)
     zips.write(s)
   zips.close()
-
-
