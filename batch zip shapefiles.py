@@ -1,3 +1,6 @@
+# To add a new cell, type '# %%'
+# To add a new markdown cell, type '# %% [markdown]'
+# %%
 # brian greer
 #4/2015
 #directory of shapefiles to zip for zipping individual shapefiles
@@ -6,7 +9,9 @@
 import os
 import glob
 from zipfile import *
- 
+
+
+# %%
 #define location of shapefiles and destination of zipped shapefiles
 source = r"/Users/danwiet/Desktop/coding/esri/past 4 months/20201116_HC"
 dest = r"/Users/danwiet/Desktop/coding/esri/past 4 months/20201116_HC/zip"
@@ -17,11 +22,15 @@ os.chdir(source)
 #test current directory
 retval = os.getcwd()
 print(retval)
- 
+
+
+# %%
 #list all files with extension .shp
 shps = glob.glob(source+"/*.shp")
-print(shps)
- 
+#print(shps)
+
+
+# %%
 # create empty list for zipfile names
 ziplist = []
  
@@ -32,7 +41,7 @@ if not os.path.exists(dest):
 #populate ziplist list of unique shapefile root names by finding all files with .shp extension and removing extension
 for name in shps:
   #prints full path for each shapefile
-  print(name)
+  #print(name)
   #retrieves just the files name for each name in shps
   file = os.path.basename(name)
   #removes .shp extension
@@ -41,23 +50,28 @@ for name in shps:
   ziplist.append(names)
  
 #prints ziplist to confirm shapefile root names have been added
-print(ziplist)
- 
+#print(ziplist)
+
+
+# %%
 #creates zipefiles in dest folder with basenames
 for f in ziplist:
-  # prints each itme in the ziplist
-  print(f)
+  # prints each item in the ziplist
+  #print(f)
   #creates the name for each zipefile based on shapefile root names
   file_name = os.path.join(dest, f+".zip")
   #print to confirm
-  print(file_name)
+  #print(file_name)
+
   #created the zipfiles with names defined above
   zips = ZipFile(file_name, "w")
-  print(zips)
+  #print(zips)
   #files lists all files with the current basename (f) from ziplist
   files = glob.glob(str(f)+".*")
   # iterate through each basename and add all shapefile components to the zipefile
   for s in files:
-    print(s)
+    #print(s)
     zips.write(s)
   zips.close()
+
+
