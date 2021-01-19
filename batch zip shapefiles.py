@@ -10,7 +10,13 @@ from zipfile import *
 #define location of shapefiles and destination of zipped shapefiles
 source = r"/Users/danwiet/Desktop/coding/esri/past 4 months/20201116_HC"
 dest = r"/Users/danwiet/Desktop/coding/esri/past 4 months/20201116_HC/zip"
- 
+
+# try 
+# for folders in os.listdir(path):
+# or
+# directory = os.listdir(path)
+# for folders in directory:
+
 #change the current directory
 os.chdir(source)
  
