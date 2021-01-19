@@ -1,7 +1,7 @@
 # updated by dan wiet on 01/19/2121
 # brian greer
 # 4/2015
-# directory of shapefiles to zip for zipping individual shapefiles
+# http: // www.bgcarto.com/zip-all-shapefiles-in-directory-individually/
  
 #import modules needed
 import os
