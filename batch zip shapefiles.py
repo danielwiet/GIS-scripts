@@ -6,7 +6,7 @@
 #import modules needed
 import os
 import glob
-from zipfile import *
+from zipfile import ZipFile
 
 # define location of shapefiles and destination of zipped shapefiles
 # source = r"/Users/danwiet/Desktop/coding/esri/past 4 months/20201116_HC"
@@ -17,6 +17,7 @@ path = input("What is the path to the parent folder: ")
 # /Users/danwiet/Desktop/coding/esri/past 4 months
 
 for folders in os.listdir(path):
+	# ignore hidden files
 	if not folders.startswith('.'):
 		# print(folders)
 
