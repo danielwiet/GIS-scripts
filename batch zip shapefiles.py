@@ -1,4 +1,4 @@
-# updated by dan wiet on 01/19/2121
+# updated by dan wiet on 01/19/2021
 # brian greer
 # 4/2015
 # http: // www.bgcarto.com/zip-all-shapefiles-in-directory-individually/
