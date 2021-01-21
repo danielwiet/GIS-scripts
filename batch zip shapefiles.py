@@ -8,7 +8,7 @@ import glob
 from zipfile import ZipFile
 
 
-path = input("What is the path to the parent folder: ")
+path = input("What is the path to the directory: ")
 
 for folders in os.listdir(path):
 	# ignore hidden files
