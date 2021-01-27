@@ -1,3 +1,4 @@
+#!/usr/bin/python
 # brian greer 4/2015
 # http: // www.bgcarto.com/zip-all-shapefiles-in-directory-individually/
 # updated by dan wiet on 01/19/2021
