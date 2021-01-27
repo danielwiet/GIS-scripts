@@ -12,7 +12,7 @@ path = input('What is the path to the directory: ')
 
 # creates a desktop destination folder
 desktop = os.path.join(os.path.expanduser('~'), 'Desktop', 'zipped_shapefiles')
-print(desktop)
+# print(desktop)
 if not os.path.exists(desktop):
 	os.mkdir(desktop)
 
